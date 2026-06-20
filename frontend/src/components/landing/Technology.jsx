@@ -2,7 +2,7 @@ import React from "react";
 import { Cpu, Zap, Database, Shield } from "lucide-react";
 
 const partners = [
-  { name: "ThetaData", tag: "Options Chain · Tick" },
+  { name: "Opra Option Chain", tag: "Options Chain · Tick" },
   { name: "Alpaca API", tag: "US Equities · Snapshots" },
   { name: "Deribit", tag: "Crypto Options · OI" },
   { name: "Yahoo Finance", tag: "OHLC · Historical" },
@@ -37,7 +37,7 @@ export default function Technology() {
             <p className="mt-5 text-zinc-400 text-base leading-relaxed">
               Milisaniyeler içinde milyonlarca opsiyon kontratını işleyerek
               Piyasa Yapıcı (Market Maker) riskten korunma duvarlarını tespit
-              ediyoruz. ThetaData&apos;nın tick-level zincirleri, Alpaca&apos;nın
+              ediyoruz. Opra Option Chain&apos;in tick-level zincirleri, Alpaca&apos;nın
               kurumsal anlık görüntüleri ve Deribit&apos;in türev verileri tek bir
               akış halinde birleşir.
             </p>

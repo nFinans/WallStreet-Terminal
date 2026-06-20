@@ -61,7 +61,7 @@ export default function Navbar() {
               LIVE
             </div>
             <a
-              href="https://wallstreet.privyalgo.com"
+              href="https://wallstreet.privyalgo.com/app"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="navbar-cta"
@@ -99,7 +99,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://wallstreet.privyalgo.com"
+              href="https://wallstreet.privyalgo.com/app"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}

@@ -69,7 +69,7 @@ export default function FooterSection() {
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-zinc-500">ThetaData</span>
+                <span className="text-zinc-500">Opra Option Chain</span>
                 <span className="text-teal-400">AKTİF</span>
               </div>
               <div className="flex items-center justify-between">
@@ -109,7 +109,7 @@ export default function FooterSection() {
             © 2026 <span className="text-white">PrivyAlgo AI</span>. Tüm Hakları Saklıdır.
           </div>
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-600">
-            Built with discipline. Powered by mathematics.
+            PrivyAlgo: Predictive Complex Data Analytics
           </div>
         </div>
       </div>

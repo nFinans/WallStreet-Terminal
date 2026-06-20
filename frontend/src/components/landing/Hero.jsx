@@ -61,7 +61,7 @@ export default function Hero() {
           className="fade-up delay-3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="https://wallstreet.privyalgo.com"
+            href="https://wallstreet.privyalgo.com/app"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="hero-cta-primary"
