@@ -1,0 +1,166 @@
+{
+  "theme": "DARK",
+  "archetype": "7 (Electric & Neon) + 5 (Luxury/Premium)",
+  "language": "TURKISH",
+  "design_philosophy": "A 'cyber-finance' aesthetic blended with the corporate 'black-box' nature of Wall Street. Highly technical, sleek, and modern. Data-dense but structurally minimal using glassmorphism and deep contrast.",
+  "colors": {
+    "background": {
+      "primary": "bg-black (#000000)",
+      "secondary": "bg-zinc-950",
+      "surface_glass": "bg-zinc-900/40 backdrop-blur-xl",
+      "surface_card": "bg-zinc-900/60"
+    },
+    "text": {
+      "primary": "text-white",
+      "secondary": "text-zinc-400",
+      "tertiary": "text-zinc-500",
+      "inverse": "text-black"
+    },
+    "accents": {
+      "primary": "text-amber-500 bg-amber-500 border-amber-500/50 (#f59e0b)",
+      "data_positive": "text-teal-400 bg-teal-400/10 border-teal-400/30 (#2dd4bf)",
+      "data_structural": "text-purple-500 bg-purple-500/10 border-purple-500/30 (#a855f7)",
+      "glow": "amber-500/20"
+    },
+    "borders": {
+      "default": "border-white/10",
+      "hover": "border-amber-500/50",
+      "subtle": "border-white/5"
+    }
+  },
+  "typography": {
+    "headings": {
+      "font": "JetBrains Mono, monospace",
+      "weight": "font-bold to font-black",
+      "tracking": "tracking-tighter",
+      "sizes": {
+        "h1": "text-5xl md:text-6xl lg:text-7xl",
+        "h2": "text-3xl md:text-4xl lg:text-5xl",
+        "h3": "text-2xl md:text-3xl"
+      }
+    },
+    "body": {
+      "font": "Inter, sans-serif",
+      "weight": "font-normal",
+      "sizes": {
+        "base": "text-base",
+        "sm": "text-sm text-zinc-400"
+      }
+    },
+    "data": {
+      "font": "JetBrains Mono, monospace",
+      "weight": "font-medium",
+      "sizes": "text-sm to text-lg"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-7xl mx-auto px-6 lg:px-8",
+    "section_padding": "py-24 md:py-32",
+    "grid_system": {
+      "features": "grid grid-cols-1 md:grid-cols-4 gap-6"
+    },
+    "card_padding": "p-8",
+    "border_radius": "rounded-2xl"
+  },
+  "components": {
+    "navbar": {
+      "style": "fixed top-0 w-full z-50 bg-black/50 backdrop-blur-xl border-b border-white/5",
+      "elements": "Logo (PrivyAlgo), Navigation Links, Primary CTA Button"
+    },
+    "buttons": {
+      "primary": "bg-amber-500 text-black font-semibold px-6 py-3 rounded-lg hover:bg-amber-400 transition-colors",
+      "secondary": "bg-zinc-900/80 border border-white/10 text-white font-medium px-6 py-3 rounded-lg hover:border-amber-500/50 hover:bg-zinc-800 transition-colors"
+    },
+    "cards": {
+      "style": "relative overflow-hidden bg-zinc-950/50 border border-white/5 rounded-2xl p-8 backdrop-blur-sm group",
+      "hover_effect": "Add absolute glow elements that follow hover or fade in on hover (e.g. inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500)."
+    }
+  },
+  "animations": {
+    "background": "Cyber-tech grid animations or particle effects. Consider using framer-motion or a simple CSS animated grid background to simulate data streams.",
+    "entrance": "Staggered fade-up for hero elements and feature cards (framer-motion).",
+    "microinteractions": "Buttons and cards should have subtle scaling (active:scale-95) and border color transitions."
+  },
+  "content": {
+    "hero": {
+      "headline": "Piyasa Mekaniklerini Yeniden Tanımla.",
+      "subheadline": "Gerçek zamanlı kurumsal emir akışı, sıfır gecikmeli WebSocket altyapısı ve kantitatif opsiyon modelleri ile Wall Street'in kara kutusunu aydınlatın.",
+      "ctas": [
+        {"label": "Sisteme Eriş", "type": "primary", "icon": "Terminal"},
+        {"label": "Eğitimleri İzle", "type": "secondary", "icon": "PlayCircle"}
+      ]
+    },
+    "features": [
+      {
+        "title": "Opus Wall & Cockpit",
+        "description": "Gerçek zamanlı piyasa rejimi, Net GEX ve Vanna (VEX) dinamikleri. Piyasanın yönünü belirleyen algoritmik seviyeleri keşfedin.",
+        "span": "md:col-span-2 row-span-2",
+        "icon": "Activity"
+      },
+      {
+        "title": "Greeks Heatmap",
+        "description": "Uzaysal vade yapısı ve likidite duvarları. Opsiyon piyasasındaki gizli destek ve direnç bölgelerini haritalayın.",
+        "span": "md:col-span-2",
+        "icon": "Grid"
+      },
+      {
+        "title": "0DTE Map",
+        "description": "Gün içi baskı ve 0DTE gamma seviyeleri ile volatilite patlamalarını önceden tespit edin.",
+        "span": "md:col-span-2",
+        "icon": "Zap"
+      },
+      {
+        "title": "Interval Map",
+        "description": "Fiyat hareketi üzerine bindirilmiş hacim ve zaman profilleri. Kurumsal ayak izlerini saniye saniye takip edin.",
+        "span": "md:col-span-4",
+        "icon": "BarChart2"
+      }
+    ],
+    "technology": {
+      "title": "Sıfır Gecikme. Sınırsız Veri.",
+      "description": "Milisaniyeler içinde milyonlarca opsiyon kontratını işleyerek Piyasa Yapıcı (Market Maker) riskten korunma duvarlarını tespit ediyoruz.",
+      "partners": ["ThetaData", "Alpaca API", "Deribit"]
+    },
+    "community": {
+      "title": "nFinans Topluluğu",
+      "description": "Son 5-6 ayda kanıtlanmış yüksek doğruluklu piyasa öngörüleri. Türkiye'nin en elit kantitatif finans topluluğuna katılın.",
+      "links": [
+        {"platform": "YouTube", "url": "https://www.youtube.com/@NFinans", "icon": "Youtube"},
+        {"platform": "X (Twitter)", "url": "https://x.com/nFinans_X", "icon": "Twitter"},
+        {"platform": "Instagram", "url": "https://www.instagram.com/nfinans_arastirma/", "icon": "Instagram"}
+      ]
+    },
+    "footer": {
+      "copyright": "© 2026 PrivyAlgo AI. Tüm Hakları Saklıdır.",
+      "links": ["Kullanım Şartları", "Gizlilik Politikası", "İletişim"],
+      "disclaimer": "Finansal Risk Uyarısı: Opsiyon ve türev araçların ticareti yüksek risk içerir. PrivyAlgo WallStreet Terminal sağladığı veriler eğitim ve analiz amaçlıdır, yatırım tavsiyesi niteliği taşımaz."
+    }
+  },
+  "media_assets": {
+    "hero_3d_surface": {
+      "url": "https://images.pexels.com/photos/30767251/pexels-photo-30767251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Abstract 3D geometric shape with neon green/teal glow to simulate a volatility surface.",
+      "placement": "Hero section background / side visual"
+    },
+    "terminal_mockup": {
+      "url": "https://images.pexels.com/photos/11798249/pexels-photo-11798249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Close-up of financial data on a computer screen. Use this embedded within a stylized 3D perspective terminal mockup.",
+      "placement": "Hero section or embedded inside feature cards"
+    },
+    "background_particles": {
+      "url": "https://images.pexels.com/photos/9665181/pexels-photo-9665181.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Abstract cosmic dust particles on dark background. Can be used as a low-opacity blend layer for backgrounds.",
+      "placement": "Global background texture (opacity-20)"
+    }
+  },
+  "technical_instructions_for_main_agent": [
+    "Install required dependencies: `lucide-react`, `framer-motion`, `clsx`, `tailwind-merge`.",
+    "Configure `tailwind.config.js` to include the custom colors (amber-500, teal-400, purple-500).",
+    "Use standard `<div>` HTML for layouts, avoid complex Shadcn components for the landing page structure itself to maintain creative freedom.",
+    "Implement the background grid using a CSS linear-gradient grid or framer-motion particles.",
+    "Ensure all text is in Turkish as provided in the content section.",
+    "Use JetBrains Mono font via Google Fonts or standard imports for headings, and Inter for body text.",
+    "Apply `data-testid` attributes to all buttons, links, and cards (e.g., `data-testid=\"hero-cta-button\"`).",
+    "Ensure high contrast and accessibility. Do not use fully transparent headers without a backdrop blur."
+  ]
+}
