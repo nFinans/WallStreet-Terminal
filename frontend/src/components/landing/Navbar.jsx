@@ -60,7 +60,9 @@ export default function Navbar() {
               LIVE
             </div>
             <a
-              href="#cta"
+              href="https://wallstreet.privyalgo.com"
+              target="_blank"
+              rel="noopener noreferrer"
               data-testid="navbar-cta"
               className="font-mono text-[13px] font-semibold px-4 py-2 rounded-md bg-amber-500 text-black hover:bg-amber-400 transition-colors"
             >
@@ -96,7 +98,9 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#cta"
+              href="https://wallstreet.privyalgo.com"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="font-mono text-sm font-semibold px-4 py-2 rounded-md bg-amber-500 text-black w-fit"
             >
