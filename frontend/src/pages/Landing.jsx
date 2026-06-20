@@ -3,6 +3,7 @@ import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import Technology from "@/components/landing/Technology";
+import Pricing from "@/components/landing/Pricing";
 import Community from "@/components/landing/Community";
 import FooterSection from "@/components/landing/FooterSection";
 import CyberBackground from "@/components/landing/CyberBackground";
@@ -20,6 +21,7 @@ export default function Landing() {
           <Hero />
           <Features />
           <Technology />
+          <Pricing />
           <Community />
         </main>
         <FooterSection />

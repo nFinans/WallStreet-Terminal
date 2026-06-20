@@ -1,6 +1,7 @@
 import "@/index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "@/pages/Landing";
+import Purchase from "@/pages/Purchase";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/satinal" element={<Purchase />} />
         </Routes>
       </BrowserRouter>
     </div>

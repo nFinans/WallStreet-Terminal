@@ -4,6 +4,7 @@ import { Terminal, Menu, X } from "lucide-react";
 const links = [
   { label: "Modüller", href: "#features" },
   { label: "Altyapı", href: "#technology" },
+  { label: "Paketler", href: "#pricing" },
   { label: "Topluluk", href: "#community" },
 ];
 
