@@ -1,5 +1,8 @@
 import React from "react";
-import { Terminal, AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Terminal, AlertTriangle, MessageCircle } from "lucide-react";
+
+const WHATSAPP_URL = "https://wa.me/905415478141";
 
 export default function FooterSection() {
   return (
@@ -11,7 +14,7 @@ export default function FooterSection() {
         {/* Top row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <div className="flex items-center gap-2.5">
               <div className="h-8 w-8 rounded-md border border-amber-500/40 bg-amber-500/10 flex items-center justify-center">
                 <Terminal className="h-4 w-4 text-amber-400" strokeWidth={2.5} />
@@ -31,36 +34,112 @@ export default function FooterSection() {
             </p>
           </div>
 
-          {/* Links */}
-          <div className="md:col-span-4 grid grid-cols-2 gap-6">
-            <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-3">
-                Platform
-              </div>
-              <ul className="space-y-2 font-mono text-sm text-zinc-400">
-                <li><a href="#features" data-testid="footer-link-modules" className="hover:text-amber-400 transition-colors">Modüller</a></li>
-                <li><a href="#technology" data-testid="footer-link-infra" className="hover:text-amber-400 transition-colors">Altyapı</a></li>
-                <li><a href="#community" data-testid="footer-link-community" className="hover:text-amber-400 transition-colors">Topluluk</a></li>
-              </ul>
+          {/* Platform */}
+          <div className="md:col-span-2">
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-3">
+              Platform
             </div>
-            <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-3">
-                Yasal
-              </div>
-              <ul className="space-y-2 font-mono text-sm text-zinc-400">
-                <li><a href="#" data-testid="footer-link-terms" className="hover:text-amber-400 transition-colors">Kullanım Şartları</a></li>
-                <li><a href="#" data-testid="footer-link-privacy" className="hover:text-amber-400 transition-colors">Gizlilik Politikası</a></li>
-                <li><a href="#" data-testid="footer-link-contact" className="hover:text-amber-400 transition-colors">İletişim</a></li>
-              </ul>
-            </div>
+            <ul className="space-y-2 font-mono text-sm text-zinc-400">
+              <li>
+                <a
+                  href="/#features"
+                  data-testid="footer-link-modules"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Modüller
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#technology"
+                  data-testid="footer-link-infra"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Altyapı
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#pricing"
+                  data-testid="footer-link-pricing"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Paketler
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#community"
+                  data-testid="footer-link-community"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Topluluk
+                </a>
+              </li>
+            </ul>
           </div>
 
-          {/* Status */}
+          {/* Yasal */}
           <div className="md:col-span-3">
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-3">
-              Sistem Durumu
+              Yasal
             </div>
-            <div className="rounded-lg border border-white/5 bg-black/40 p-4 space-y-2.5 font-mono text-xs">
+            <ul className="space-y-2 font-mono text-sm text-zinc-400">
+              <li>
+                <Link
+                  to="/kvkk"
+                  data-testid="footer-link-kvkk"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  KVKK Aydınlatma Metni
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/uyelik-sozlesmesi"
+                  data-testid="footer-link-uyelik"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Üyelik Sözleşmesi
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gizlilik-politikasi"
+                  data-testid="footer-link-gizlilik"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Gizlilik Politikamız
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Destek */}
+          <div className="md:col-span-3">
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-3">
+              Destek
+            </div>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="footer-whatsapp"
+              className="group flex items-center gap-3 rounded-lg border border-white/5 bg-black/40 hover:border-teal-400/40 hover:bg-zinc-900 transition-all p-3"
+            >
+              <div className="h-10 w-10 rounded-lg border border-teal-400/30 bg-teal-400/10 flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="h-5 w-5 text-teal-400" strokeWidth={2} />
+              </div>
+              <div className="min-w-0">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+                  WhatsApp Destek
+                </div>
+                <div className="font-mono text-sm font-bold text-white truncate">
+                  +90 541 547 81 41
+                </div>
+              </div>
+            </a>
+            <div className="mt-3 rounded-lg border border-white/5 bg-black/40 p-3 space-y-2 font-mono text-xs">
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">WebSocket</span>
                 <span className="flex items-center gap-2 text-teal-400">
@@ -73,11 +152,7 @@ export default function FooterSection() {
                 <span className="text-teal-400">AKTİF</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-zinc-500">Alpaca</span>
-                <span className="text-teal-400">AKTİF</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-zinc-500">Deribit</span>
+                <span className="text-zinc-500">Alpaca · Deribit</span>
                 <span className="text-teal-400">AKTİF</span>
               </div>
             </div>

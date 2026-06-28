@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -7,9 +7,14 @@ import {
   Check,
   Terminal,
   AlertTriangle,
+  Lock,
 } from "lucide-react";
 import { PACKAGES, BONUS } from "@/components/landing/Pricing";
 import CyberBackground from "@/components/landing/CyberBackground";
+import LegalConsent, {
+  EMPTY_CONSENT,
+  getMissingConsentErrors,
+} from "@/components/landing/LegalConsent";
 
 function WhopEmbed({ planId, testid }) {
   const ref = useRef(null);
@@ -38,6 +43,34 @@ function WhopEmbed({ planId, testid }) {
 }
 
 export default function Purchase() {
+  const [consent, setConsent] = useState({ ...EMPTY_CONSENT });
+  const [errors, setErrors] = useState([]);
+  const allAccepted =
+    consent.kvkk && consent.uyelik && consent.gizlilik;
+
+  const handleConsentChange = (key, checked) => {
+    setConsent((prev) => ({ ...prev, [key]: checked }));
+    if (checked) setErrors([]);
+  };
+
+  const handleUnlock = () => {
+    const missing = getMissingConsentErrors(consent);
+    setErrors(missing);
+    if (missing.length === 0) {
+      // Re-trigger Whop loader to mount the newly-rendered placeholders
+      setTimeout(() => {
+        const loader = window.wco;
+        if (loader && typeof loader.process === "function") {
+          try {
+            loader.process();
+          } catch (_) {
+            // loader will pick up via MutationObserver
+          }
+        }
+      }, 120);
+    }
+  };
+
   useEffect(() => {
     document.title = "Paket Satın Al · PrivyAlgo WallStreet Terminal";
     // smooth scroll to anchor when arriving with hash
@@ -130,6 +163,55 @@ export default function Purchase() {
                 Her iki pakete dahil
               </div>
             </div>
+
+            {/* Legal consent gate */}
+            <div
+              data-testid="purchase-consent-block"
+              className={`mt-6 glass rounded-2xl p-6 lg:p-8 ${
+                allAccepted ? "border-teal-400/30" : "border-amber-500/30"
+              }`}
+            >
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                <div className="md:max-w-md">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-500 mb-2">
+                    // Yasal Onaylar · Ödeme öncesi
+                  </div>
+                  <h3 className="font-mono font-bold text-lg md:text-xl text-white">
+                    Devam etmeden önce üç belgeyi onaylayın
+                  </h3>
+                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+                    Ödeme ekranlarının aktifleşmesi için aşağıdaki yasal
+                    belgelerin tamamını okuyup onaylamanız zorunludur. Onay
+                    vermeden ödeme alınamaz.
+                  </p>
+                  {allAccepted && (
+                    <div className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-teal-400 border border-teal-400/30 bg-teal-400/10 px-3 py-1.5 rounded-full">
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                      Tüm onaylar tamamlandı · Ödeme açık
+                    </div>
+                  )}
+                </div>
+                <div className="flex-1 md:max-w-md">
+                  <LegalConsent
+                    value={consent}
+                    onChange={handleConsentChange}
+                    errors={errors}
+                    testIdPrefix="purchase"
+                  />
+                  {!allAccepted && (
+                    <button
+                      type="button"
+                      onClick={handleUnlock}
+                      data-testid="purchase-consent-unlock"
+                      className="mt-4 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-amber-500 text-black font-mono font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors active:scale-95"
+                    >
+                      <Lock className="h-4 w-4" />
+                      Onayla ve Ödeme Ekranlarını Aç
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -202,15 +284,33 @@ export default function Purchase() {
                     ))}
                   </ul>
 
-                  {/* Whop iframe */}
+                  {/* Whop iframe (gated by consent) */}
                   <div className="mt-6">
                     <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-2">
                       // güvenli ödeme · whop checkout
                     </div>
-                    <WhopEmbed
-                      planId={p.planId}
-                      testid={`whop-embed-${p.id}`}
-                    />
+                    {allAccepted ? (
+                      <WhopEmbed
+                        planId={p.planId}
+                        testid={`whop-embed-${p.id}`}
+                      />
+                    ) : (
+                      <div
+                        data-testid={`whop-locked-${p.id}`}
+                        className="w-full min-h-[280px] rounded-xl border border-amber-500/20 bg-amber-500/[0.04] flex flex-col items-center justify-center text-center p-6 gap-3"
+                      >
+                        <div className="h-12 w-12 rounded-full border border-amber-500/40 bg-amber-500/10 flex items-center justify-center">
+                          <Lock className="h-5 w-5 text-amber-400" />
+                        </div>
+                        <div className="font-mono text-sm font-bold text-white">
+                          Ödeme ekranı kilitli
+                        </div>
+                        <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-400 max-w-xs leading-relaxed">
+                          Devam etmek için sayfanın üst kısmındaki yasal
+                          onayları tamamlayın.
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </article>
               ))}

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, Sparkles, ArrowRight, BookOpen } from "lucide-react";
 import CheckoutModal from "@/components/landing/CheckoutModal";
+import LegalConsent, {
+  EMPTY_CONSENT,
+  getMissingConsentErrors,
+} from "@/components/landing/LegalConsent";
 
 export const PACKAGES = [
   {
@@ -59,6 +63,36 @@ export const BONUS = {
 
 export default function Pricing() {
   const [activePkg, setActivePkg] = useState(null);
+  // Per-package consent + error state
+  const [consents, setConsents] = useState({
+    "6-aylik": { ...EMPTY_CONSENT },
+    yillik: { ...EMPTY_CONSENT },
+  });
+  const [errors, setErrors] = useState({
+    "6-aylik": [],
+    yillik: [],
+  });
+
+  const updateConsent = (pkgId, key, checked) => {
+    setConsents((prev) => ({
+      ...prev,
+      [pkgId]: { ...prev[pkgId], [key]: checked },
+    }));
+    // clear errors when user starts ticking
+    if (checked) {
+      setErrors((prev) => ({ ...prev, [pkgId]: [] }));
+    }
+  };
+
+  const handlePurchase = (p) => {
+    const missing = getMissingConsentErrors(consents[p.id]);
+    if (missing.length > 0) {
+      setErrors((prev) => ({ ...prev, [p.id]: missing }));
+      return;
+    }
+    setErrors((prev) => ({ ...prev, [p.id]: [] }));
+    setActivePkg(p);
+  };
 
   return (
     <section
@@ -174,12 +208,25 @@ export default function Pricing() {
                 </div>
               </div>
 
+              {/* Legal consent checkboxes */}
+              <div className="mt-6 pt-5 border-t border-white/5">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-3">
+                  // Yasal Onaylar
+                </div>
+                <LegalConsent
+                  value={consents[p.id]}
+                  onChange={(key, checked) => updateConsent(p.id, key, checked)}
+                  errors={errors[p.id]}
+                  testIdPrefix={`pricing-${p.id}`}
+                />
+              </div>
+
               {/* CTA - opens modal */}
               <button
                 type="button"
-                onClick={() => setActivePkg(p)}
+                onClick={() => handlePurchase(p)}
                 data-testid={`pricing-cta-${p.id}`}
-                className={`mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-mono font-bold text-sm uppercase tracking-wider transition-all active:scale-95 ${
+                className={`mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-mono font-bold text-sm uppercase tracking-wider transition-all active:scale-95 ${
                   p.featured
                     ? "bg-amber-500 text-black hover:bg-amber-400 glow-amber"
                     : "bg-zinc-900/80 border border-white/10 text-white hover:border-amber-500/50 hover:bg-zinc-800"
