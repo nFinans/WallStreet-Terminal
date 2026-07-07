@@ -6,6 +6,7 @@ const links = [
   { label: "Altyapı", href: "#technology" },
   { label: "Paketler", href: "#pricing" },
   { label: "Topluluk", href: "#community" },
+  { label: "Blog", href: "https://blog.privyalgo.com", external: true },
 ];
 
 export default function Navbar() {
