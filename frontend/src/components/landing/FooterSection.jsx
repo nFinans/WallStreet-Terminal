@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Terminal, AlertTriangle, MessageCircle, ShieldCheck } from "lucide-react";
+import { Terminal, AlertTriangle, MessageCircle, ShieldCheck, CreditCard, Lock } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/905415478141";
 
@@ -125,10 +125,10 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="footer-whatsapp"
-              className="group flex items-center gap-3 rounded-lg border border-white/5 bg-black/40 hover:border-teal-400/40 hover:bg-zinc-900 transition-all p-3"
+              className="group flex items-center gap-3 rounded-lg border border-white/5 bg-black/40 hover:border-amber-400/40 hover:bg-zinc-900 transition-all p-3"
             >
-              <div className="h-10 w-10 rounded-lg border border-teal-400/30 bg-teal-400/10 flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="h-5 w-5 text-teal-400" strokeWidth={2} />
+              <div className="h-10 w-10 rounded-lg border border-amber-400/30 bg-amber-400/10 flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="h-5 w-5 text-amber-400" strokeWidth={2} />
               </div>
               <div className="min-w-0">
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
@@ -142,27 +142,49 @@ export default function FooterSection() {
             <div className="mt-3 rounded-lg border border-white/5 bg-black/40 p-3 space-y-2 font-mono text-xs">
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">WebSocket</span>
-                <span className="flex items-center gap-2 text-teal-400">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400 live-dot" />
+                <span className="flex items-center gap-2 text-amber-400">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-400 live-dot" />
                   AKTİF
                 </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">Opra Option Chain</span>
-                <span className="text-teal-400">AKTİF</span>
+                <span className="text-amber-400">AKTİF</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">Alpaca · Deribit</span>
-                <span className="text-teal-400">AKTİF</span>
+                <span className="text-amber-400">AKTİF</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* 🟢 GÜVENLİ ÖDEME & İYZİCO BİLGİLENDİRME BANDI 🟢 */}
+        <div className="mt-10 rounded-xl border border-amber-500/20 bg-zinc-900/60 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-left">
+            <div className="h-10 w-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0">
+              <Lock className="h-5 w-5 text-amber-400" />
+            </div>
+            <div>
+              <div className="font-mono text-xs font-bold text-white uppercase tracking-wider">
+                Güvenli Ödeme Altyapısı
+              </div>
+              <div className="font-mono text-[11px] text-zinc-400 mt-0.5">
+                Tüm ödemeleriniz <strong className="text-amber-400">İyzico</strong> güvencesiyle 256-bit SSL sertifikası altında korunmaktadır.
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 flex-wrap justify-center">
+            <span className="px-3 py-1 rounded bg-black/60 border border-white/10 font-mono text-[10px] text-zinc-300 tracking-wider">İYZİCO İLE ÖDE</span>
+            <span className="px-3 py-1 rounded bg-black/60 border border-white/10 font-mono text-[10px] text-zinc-300 tracking-wider">256-BIT SSL</span>
+            <span className="px-3 py-1 rounded bg-black/60 border border-white/10 font-mono text-[10px] text-zinc-300 tracking-wider">3D SECURE</span>
           </div>
         </div>
 
         {/* Data Controller */}
         <div
           data-testid="footer-data-controller"
-          className="mt-12 rounded-xl border border-teal-500/15 bg-teal-500/[0.03] p-5"
+          className="mt-6 rounded-xl border border-teal-500/15 bg-teal-500/[0.03] p-5"
         >
           <div className="flex gap-3">
             <ShieldCheck className="h-4 w-4 text-teal-400 mt-0.5 flex-shrink-0" />
