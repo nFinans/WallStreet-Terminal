@@ -218,6 +218,15 @@ export default function FooterSection() {
           <div className="font-mono text-[11px] text-zinc-500">
             © 2026 <span className="text-white">PrivyAlgo AI</span>. Tüm Hakları Saklıdır.
           </div>
+          {/* Payment Logos (iyzico requirement) */}
+          <div className="flex items-center justify-center order-1 md:order-2">
+            <img 
+              src="/logo_band_white@1X.png" 
+              alt="Güvenli Ödeme" 
+              className="h-6 md:h-7 object-contain opacity-80 hover:opacity-100 transition-opacity" 
+              loading="lazy"
+            />
+          </div>
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-600">
             PrivyAlgo: Predictive Complex Data Analytics
           </div>
