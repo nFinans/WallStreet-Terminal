@@ -1,0 +1,1 @@
+Bu dosyalar ana aplikasyon dosyalarının yedekleridir. Mobil aplikasyon sunucuda ayri bir klasörde bu ana ana aplikasyona göre çalışmaktadır
